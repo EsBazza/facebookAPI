@@ -13,7 +13,7 @@ public class WebConfig {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
 
-            @Value("${ALLOWED_ORIGINS:http://localhost:5173}")
+            @Value("${ALLOWED_ORIGINS:http://localhost:5432}")
             private String allowedOrigins;
 
             @Override
