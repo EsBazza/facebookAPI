@@ -8,6 +8,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts")
+@CrossOrigin(origins = {
+        "https://facebookui-2rj2.onrender.com", // your deployed frontend
+        "http://localhost:5173"                 // local dev
+})
 public class PostController {
 
     private final PostRepository repository;

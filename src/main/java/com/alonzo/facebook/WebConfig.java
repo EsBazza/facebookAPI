@@ -12,15 +12,15 @@ public class WebConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
-            @Value("${ALLOWED_ORIGINS:http://localhost:5173}")
-            private String allowedOrigins;
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // Allow all endpoints
-                        .allowedOrigins(allowedOrigins.split(",")) // Support multiple origins separated by commas
+                registry.addMapping("/api/**")
+                        .allowedOrigins(
+                                "https://facebookui-2rj2.onrender.com",
+                                "http://localhost:5173"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true); // If using cookies or authentication headers
+                        .allowedHeaders("*");
             }
         };
     }
